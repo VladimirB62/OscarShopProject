@@ -15,6 +15,7 @@ public class HomePageSteps implements En {
         Given("Navigate to Home Page",() -> {
             //System.setProperty("selenide.browser", "Firefox");
             home = open(baseURL,HomePage.class);
+            home.chooseEnglish();
         });
 
         When("Click on Login or register button",() ->{

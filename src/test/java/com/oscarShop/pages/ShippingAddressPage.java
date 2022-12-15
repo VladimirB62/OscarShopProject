@@ -21,6 +21,7 @@ public class ShippingAddressPage {
     public static By postCodeLocator = By.id("id_postcode");
     private static String validPostCode = PropertiesLoader.loadProperty("valid.post_code");
     public static By countryLocator = By.id("id_country");
+    private static String validCountry = PropertiesLoader.loadProperty("valid.country");
 
     public static By continueButtonLocator = By.xpath("//button[contains(text(),'Continue')]");
 
@@ -34,7 +35,7 @@ public class ShippingAddressPage {
         $(addressLocator).setValue(validAddressName);
         $(cityLocator).setValue(validCityName);
         $(postCodeLocator).setValue(validPostCode);
-        $(countryLocator).selectOption("AF");
+        $(countryLocator).selectOptionByValue(validCountry);
     }
 
     public void clickOnContinueButton() {
