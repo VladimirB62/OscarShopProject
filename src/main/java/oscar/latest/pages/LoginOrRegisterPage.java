@@ -31,6 +31,14 @@ public class LoginOrRegisterPage extends PageBase{
         return new HeaderPage(driver);
     }
 
+    public void registrationWithInvalidData(String email, String password) {
+        type(regEmail, email);
+        type(regPassword1,password);
+        type(regPassword2,password);
+        click(regButton);
+
+    }
+
     @FindBy(css = "[class*=\"error-block\"]")
     WebElement errorMessage;
 
@@ -44,5 +52,39 @@ public class LoginOrRegisterPage extends PageBase{
         type(regPassword2,confirm);
         click(regButton);
         return errorMessage.getText();
+    }
+
+    @FindBy(id = "id_login-username")
+    WebElement loginEmail;
+
+    @FindBy(id = "id_login-password")
+    WebElement loginPassword;
+
+    @FindBy(xpath = "//button[contains(text(),'Log In')]")
+    WebElement logInButton;
+
+    public HeaderPage login(String email, String password) {
+        type(loginEmail,email);
+        pause(500);
+        type(loginPassword,password);
+        click(logInButton);
+
+        return new HeaderPage(driver);
+    }
+
+    public LoginOrRegisterPage loginWithInvalidData(String email, String password) {
+        type(loginEmail,email);
+        pause(500);
+        type(loginPassword,password);
+        click(logInButton);
+
+        return new LoginOrRegisterPage(driver);
+    }
+
+    @FindBy(css = "div.alert.alert-danger:nth-child(4")
+    WebElement loginErrorMessage;
+
+    public String checkLoginErrorMessage() {
+        return loginErrorMessage.getText();
     }
 }
