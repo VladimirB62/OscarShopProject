@@ -3,6 +3,7 @@ package oscar.latest.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import sun.jvm.hotspot.gc.z.ZAddressRangeMapForPageTable;
 
 import java.util.Collection;
 
@@ -40,5 +41,33 @@ public class ProfilePage extends PageBase{
 
     public String checkName() {
         return usersName.getText();
+    }
+
+    @FindBy(id = "delete_profile")
+    WebElement deleteProfile;
+
+    public ProfilePage clickDeleteProfileButton() {
+        click(deleteProfile);
+        return new ProfilePage(driver);
+    }
+
+    @FindBy(id = "id_password")
+    WebElement passwordInput;
+
+    @FindBy(xpath = "//button[contains(text(),'Delete')]")
+    WebElement deleteButton;
+
+    public HomePage confirmDelete(String password) {
+        type(passwordInput,password);
+        click(deleteButton);
+        return new HomePage(driver);
+    }
+
+    @FindBy(linkText = "Address Book")
+    WebElement addressBookLink;
+
+    public AddressPage clickAddressBookLink() {
+        click(addressBookLink);
+        return new AddressPage(driver);
     }
 }

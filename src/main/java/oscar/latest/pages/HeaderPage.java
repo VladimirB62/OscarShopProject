@@ -51,5 +51,11 @@ public class HeaderPage extends PageBase{
         return new HeaderPage(driver);
     }
 
+    @FindBy(css = "[class*=\"nav-link mt-2 mt-lg-0\"]")
+    WebElement accountButton;
 
+    public ProfilePage clickAccountButton() {
+        click(accountButton);
+        return new ProfilePage(driver);
+    }
 }
