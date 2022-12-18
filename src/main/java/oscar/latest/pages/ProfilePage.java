@@ -3,9 +3,7 @@ package oscar.latest.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import sun.jvm.hotspot.gc.z.ZAddressRangeMapForPageTable;
 
-import java.util.Collection;
 
 public class ProfilePage extends PageBase{
     public ProfilePage(WebDriver driver) {
