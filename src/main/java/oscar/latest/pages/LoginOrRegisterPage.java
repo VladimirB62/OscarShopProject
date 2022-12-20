@@ -87,4 +87,12 @@ public class LoginOrRegisterPage extends PageBase{
     public String checkLoginErrorMessage() {
         return loginErrorMessage.getText();
     }
+
+    @FindBy(xpath = "//strong[contains(text(),'Oops! We found some errors')]")
+    WebElement oopsMess;
+
+
+    public boolean isOoopsPresent() {
+        return oopsMess.isDisplayed();
+    }
 }

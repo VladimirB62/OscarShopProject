@@ -68,4 +68,12 @@ public class ProfilePage extends PageBase{
         click(addressBookLink);
         return new AddressPage(driver);
     }
+
+    @FindBy(xpath = "//a[contains(text(),'Wish Lists')]")
+    WebElement wishListsLink;
+
+    public WishListPage clickWishListLink() {
+        click(wishListsLink);
+        return new WishListPage(driver);
+    }
 }

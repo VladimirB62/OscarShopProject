@@ -14,7 +14,10 @@ public class ProfilePageTests extends TestBase{
     public void precondition() {
         new HeaderPage(driver).selectLanguage("en-gb");
         new HeaderPage(driver).clickOnLoginOrRegisterButton();
-        new LoginOrRegisterPage(driver).login("ronaldo37@gmail.com","123456Aa!");
+        new LoginOrRegisterPage(driver).login("ronaldo37@gmail.com", "123456Aa!");
+        if (new LoginOrRegisterPage(driver).isOoopsPresent() == true) {
+            new LoginOrRegisterPage(driver).registration("ronaldo37@gmail.com", "123456Aa!");
+        }
         new HeaderPage(driver).clickAccountButton();
     }
 

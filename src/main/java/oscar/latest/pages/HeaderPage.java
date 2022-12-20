@@ -58,4 +58,12 @@ public class HeaderPage extends PageBase{
         click(accountButton);
         return new ProfilePage(driver);
     }
+
+    @FindBy(css = "[class*=\"form-control mr-sm-2\"]")
+    WebElement searchInput;
+
+    public ProductsPage goToItems(String searchName) {
+        type(searchInput,searchName);
+        return new ProductsPage(driver);
+    }
 }
